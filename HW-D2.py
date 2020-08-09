@@ -4,8 +4,11 @@ import os
 from bottle import Bottle, request
 from sentry_sdk.integrations.bottle import BottleIntegration
 
+from dotenv import load_dotenv
+load_dotenv()
+
 sentry_sdk.init(
-    dsn="https://53de4295d9e64d9ca1bf707b7665592f@o431310.ingest.sentry.io/5382327",
+    dsn=os.environ['DSN_ENV'],
     integrations=[BottleIntegration()]
 )
 
